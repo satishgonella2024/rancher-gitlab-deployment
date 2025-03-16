@@ -4,17 +4,17 @@ metadata:
   name: gitlab
   namespace: argocd
 spec:
-  destination:
-    namespace: gitlab
-    server: https://kubernetes.default.svc
   project: default
   source:
     repoURL: https://github.com/satishgonella2024/rancher-gitlab-deployment.git
-    path: gitlab  # ✅ Change to correct Helm chart path
-    targetRevision: main
+    targetRevision: HEAD   # Changed from "main" to "HEAD"
+    path: gitlab
     helm:
       valueFiles:
         - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitlab
   syncPolicy:
     automated:
       prune: true
