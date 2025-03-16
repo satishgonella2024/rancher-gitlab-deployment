@@ -1,0 +1,28 @@
+global:
+  edition: ce
+  hosts:
+    domain: gitlab.gonella.co.uk
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+    tls:
+      enabled: true
+      secretName: gitlab-tls
+  storage:
+    persistent: true
+
+gitlab:
+  gitlab-runner:
+    install: true
+
+postgresql:
+  enabled: true
+  persistence:
+    storageClass: longhorn
+
+redis:
+  enabled: true
+  persistence:
+    storageClass: longhorn

@@ -1,0 +1,7 @@
+# Ignore temporary files
+*.log
+*.tmp
+.DS_Store
+
+# Ignore Kubernetes secrets
+helm-chart/secrets.yaml
